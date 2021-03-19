@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import React from "react";
+import { HashRouter, Route } from 'react-router-dom';
+import Login from "./components/auth/Login";
+import Signup from "./components/auth/Signup";
+import ProtectedRoute from "./components/protectedRoute/ProtectedRoute";
+import Chat from "./components/chat/Chat";
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="chat__container">
+      <HashRouter>
+        
+        <Route path="/Signup" component={Signup} />
+        <ProtectedRoute path="/chat">
+          <Chat />
+        </ProtectedRoute>
+        <Route exact path="/" component={Login} />
+      </HashRouter>
     </div>
   );
 }

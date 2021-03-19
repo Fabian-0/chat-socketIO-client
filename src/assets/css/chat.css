@@ -1,0 +1,66 @@
+.Chat__messages-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  height: 100%;
+  min-height: 200px;  
+}
+
+.Chat__bar-info {
+  width: 100%;
+  background-color: #fff;
+  padding: 15px;
+  background-color: #2979ff;
+  position: relative;
+}
+
+.Chat_connected-ball {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: rgb(0, 255, 0);
+  border-radius: 50%;
+}
+
+.Chat__user {
+  display: inline-block;
+  margin-left: 5px;
+  font-size: 1.15rem;
+  color: #fff;
+}
+
+.Chat__logout {
+  position: absolute;
+  right: 30px;
+  background-color: transparent;
+  border: none;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+}
+
+.Chat__users-connected {
+  display: inline-block;
+  width: 30%;
+}
+
+.Chat__message-container {
+  display: inline-block;
+  width: 70%;
+  height: 100%;
+  border-left: 2px solid rgba(128, 128, 128, 0.568);
+  min-height: 200px;  
+  padding: 20px;
+}
+
+.Chat__form-messages {
+  width: 100%;
+  padding: 10px;
+  border-top: 2px solid rgba(128, 128, 128, 0.568);
+  text-align: right;
+  position: absolute;
+}
