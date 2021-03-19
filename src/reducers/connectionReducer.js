@@ -40,7 +40,6 @@ export const socketConnect = (token, user, chatRoom) => {
       }
     }, (error) => console.log(error));
     return connection.on('connect',()=>{
-      console.log('connected');
       connection.emit('join', {name: user, room: chatRoom}, (error)=>{
       });
       return dispatch({type:'SOCKET_CONNECT', payload: connection});

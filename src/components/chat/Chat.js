@@ -16,37 +16,33 @@ function Chat() {
   const { register, handleSubmit, reset } = useForm();
 
   useEffect(()=>{
-    console.log('render-socket-0');
     if(location.state?.chatroom && !connection.socket) dispatch(socketConnect(user.token, user.user, location.state?.chatroom));
-    console.log(connection);
-    console.log('render-socket');
   },[user.token]);
 
   useEffect(()=>{    
-    console.log(connection);
+
     if(!connection.socket?.connected) return;
     connection.socket.on('roomData', (data)=>{
       setRoomData(data.users);
-      console.log(data);
+  
     })
     connection.socket.on("message", (data) => {
       const content = (data.text?.message) ? {user:data.user, text: data.text.message} : data;
       setRoomMessage(prevMessages => [...prevMessages, content]);
-      console.log(data);
+  
     });
     connection.socket.on("error", (data) => {
-      console.log(data);
+  
     });
   },[connection.socket?.connected]);
 
   const onSubmit = (data) => {
-    console.log(data);
+
     connection.socket.emit('sendMessage', data, (error)=>{
-      console.log(error);
+  
     })
     reset();
   }
-  console.log(roomMessage);
   return (
     <div className="Chat__messages-container">
       {connection.loading && <p className="Chat__loading">Loading....</p> }
