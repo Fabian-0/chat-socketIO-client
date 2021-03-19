@@ -60,7 +60,7 @@ function Chat() {
       <div className="Chat__message-container">
         {roomMessage.length && 
           roomMessage.map((element, index)=>{
-            return <p key={index} className="Chat__message-print"><span className="Chat__message-user">{element.user}</span>{element.text}</p>;
+            return <p key={index} className="Chat__message-print"><span className="Chat__message-user">{element.user+" "}</span>{element.text}</p>;
           })         
         }
       </div>
