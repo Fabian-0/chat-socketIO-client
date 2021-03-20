@@ -13,8 +13,6 @@ function Login() {
   const {register, handleSubmit, errors} = useForm();
   const {user, error} =useSelector((state) => state.user)
 
-  console.log(user);
-
   const onSubmit = (data) => {
     dispatch(userAuthThunk(data));
     setChatRoom(data.chatroom);
@@ -24,8 +22,8 @@ function Login() {
   return (
     <>
       <div className="Chat__cont-loginForm form-container"> 
-        <h2 className="form-title">Join</h2> 
         <form className="Chat__loginForm form" onSubmit={handleSubmit(onSubmit)}>
+          <h2 className="form-title">Join</h2> 
           <input ref={register({
             required: true
           })} type="email" name="email" placeholder="Email" className="Chat__login-input form-input" />
@@ -39,8 +37,8 @@ function Login() {
           })} type="text" name="chatroom" placeholder="Chat Room" className="Chat__login-input form-input" />
           {errors?.chatroom && <span className="form-error">Chat room required</span>}
           <input type="submit" className="Chat__login-btn form-btn" value="Sing up"/>
+          <Link to="./Signup" className="form-link">Create an accoutn</Link>
         </form>
-        <Link to="./Signup" className="form-link">Create an accoutn</Link>
         {error && <span className="form-error">User not register</span>}
       </div>
       {user &&

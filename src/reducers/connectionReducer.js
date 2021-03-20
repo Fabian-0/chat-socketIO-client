@@ -9,10 +9,6 @@ const INITIAL_STATE = {
 
 export const connectionReducer = (state  = INITIAL_STATE, action) => {
   switch (action.type) {
-    case "LOGOUT":
-      return {
-        state: INITIAL_STATE
-      };
     case 'SOCKET_INIT':
       return({
         ...state,
@@ -38,9 +34,10 @@ export const socketConnect = (token, user, chatRoom) => {
       query: {
         token: token
       }
-    }, (error) => console.log(error));
+    }, (error) => console.error(error));
     return connection.on('connect',()=>{
       connection.emit('join', {name: user, room: chatRoom}, (error)=>{
+        console.error(error);
       });
       return dispatch({type:'SOCKET_CONNECT', payload: connection});
     });

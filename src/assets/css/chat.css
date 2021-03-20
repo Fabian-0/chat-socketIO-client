@@ -1,12 +1,8 @@
 .Chat__messages-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #fff;
-  height: 100%;
-  min-height: 200px;  
+  height: 85.9vh;
+  min-height: 200px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .Chat__bar-info {
@@ -39,28 +35,83 @@
   border: none;
   font-size: 1.15rem;
   font-weight: 700;
+  text-decoration: none;
   color: #fff;
   cursor: pointer;
 }
 
 .Chat__users-connected {
   display: inline-block;
-  width: 30%;
+  width: 20%;
 }
 
 .Chat__message-container {
   display: inline-block;
-  width: 70%;
+  position: relative;
+  overflow-y: scroll;
+  width: 80%;
   height: 100%;
   border-left: 2px solid rgba(128, 128, 128, 0.568);
   min-height: 200px;  
   padding: 20px;
 }
 
+.Chat__users-connected {
+  padding: 20px;
+}
+
+.chat-users {
+  padding-bottom: 3px;
+}
+
+.Chat__message-print-right, .Chat__message-print-left {
+  width: 100%;
+  padding: 5px 0;
+}
+
+.Chat__message-print-right > p, .Chat__message-print-left > p {
+  display: inline-block;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #2979ff;
+}
+
+.Chat__message-print-right  {
+  text-align: right;
+}
+
+.Chat__message-print-left {
+  text-align: left;
+}
+
+.Chat__message-user {
+  padding: 5px;
+  color: rgb(109, 109, 109);
+  border-radius: 15px;
+  font-size: .8rem;
+  bottom: 0;
+}
+
 .Chat__form-messages {
   width: 100%;
-  padding: 10px;
   border-top: 2px solid rgba(128, 128, 128, 0.568);
   text-align: right;
-  position: absolute;
+}
+
+.btn-messages {
+  vertical-align: top;
+  width: 10%;
+  height: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #2979ff;
+  color: #fff;cursor: pointer;
+}
+
+.input-messages {
+  width: 90%;
+  height: 100%;
+  padding-left: 10px;
+  border: none;
 }

@@ -1,8 +1,15 @@
 .form-container {
   width: 100%;
+  padding: 0 40px;
+  height: 100vh;
+  background-color: #1a1a1d;
+  overflow: scroll;
+}
+
+.form {
+  width: 100%;
   max-width: 600px;
   margin: auto;
-  padding: 0 40px;
   display: flex;
   flex-wrap: wrap;
 }

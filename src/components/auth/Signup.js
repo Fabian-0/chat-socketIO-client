@@ -20,8 +20,8 @@ function Singup() {
 
   return (
     <div className="form-container">
-      <h2 className="form-title">Register</h2>   
       <form className="Chat__singup-form form" onSubmit={handleSubmit(onSubmit)}>
+        <h2 className="form-title">Register</h2>   
         <input ref={register({
           required: true
         })} type="text" name="username" placeholder="User name" className="Chat__signup-input form-input" />
