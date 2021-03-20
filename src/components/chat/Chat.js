@@ -36,6 +36,7 @@ function Chat() {
   }, [connection.socket?.connected]);
 
   const onSubmit = (data) => {
+    if(!data?.message) return;
     connection.socket.emit("sendMessage", data,(error) => {
       console.error(error);
     });
