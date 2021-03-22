@@ -15,7 +15,7 @@ function Singup() {
   const onSubmit = (data) => {
     dispatch(userRegisterThunk(data));
     setChatRoom(data.chatroom);
-    return console.log(data);
+    return;
   }
 
   return (

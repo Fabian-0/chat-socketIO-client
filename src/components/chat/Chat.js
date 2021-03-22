@@ -12,6 +12,7 @@ function Chat() {
   const [roomData, setRoomData] = useState([]);
   const { user, connection } = useSelector((state) => state);
   const { register, handleSubmit, reset } = useForm();
+  const scrollMessage = document.getElementById('scroll-message');
 
   useEffect(() => {  
     if (location.state?.chatroom && !connection.socket) {    
@@ -34,6 +35,12 @@ function Chat() {
       console.error(error); 
     });
   }, [connection.socket?.connected]);
+
+  useEffect(()=>{
+    if(!roomMessage.length) return;
+    const innerHeight = scrollMessage.scrollHeight;
+    scrollMessage.scroll(0,innerHeight);
+  }, [roomMessage]);
 
   const onSubmit = (data) => {
     if(!data?.message) return;
@@ -60,7 +67,7 @@ function Chat() {
             );
           })}
       </div>
-      <div className="Chat__message-container">
+      <div className="Chat__message-container" id="scroll-message">
         {(roomMessage.length !== 0) &&
           roomMessage.map((element, index) => {
             return (
@@ -74,6 +81,7 @@ function Chat() {
             );
           })}
       </div>
+      
       <form onSubmit={handleSubmit(onSubmit)} className="Chat__form-messages">
         <input type="text" name="message" ref={register} placeholder="message" className="input-messages" />
         <input type="submit" value="Send" className="btn-messages" />
